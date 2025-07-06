@@ -1,0 +1,238 @@
+git config -h
+git config --help
+
+
+
+## 🧠 Lesson 1: What Is Git?
+Git is a **version control system** — it tracks changes in your code over time, lets you collaborate with others, and helps you roll back to previous versions if needed.
+
+---
+
+## 🚀 Lesson 2: Git Setup
+Before using Git:
+
+| Scope        | Command flag             | Affects...                  | Location                                 |
+| ------------ | ------------------------ | --------------------------- | ---------------------------------------- |
+| System       | `--system`               | All users on the system     | `/etc/gitconfig`                         |
+| Global       | `--global`               | Your user account           | `~/.gitconfig` or `~/.config/git/config` |
+| Local (repo) | *default* (or `--local`) | Only the current repository | `.git/config` inside the repo            |
+
+
+Editing Configuration Files Directly
+git config --global --edit     # opens ~/.gitconfig
+git config --system --edit     # opens /etc/gitconfig
+git config --local --edit      # opens .git/config in the repo
+
+
+aliases
+# The command in the "" is the shutcut that will be provided.
+git config --global alias.lg "log --oneline --graph --all"
+
+```bash
+git config --global user.name "Your Name"
+git config --global user.email "you@example.com"
+```
+
+Enable colored output:
+git config --global color.ui auto
+Set your default text editor:
+
+git config --global core.editor "code --wait"   # VS Code
+git config --global core.autocrlf true
+Set up credential caching:
+
+git config --global credential.helper cache
+Enable command aliases:
+
+git config --global alias.co checkout
+git config --global alias.br branch
+git config --global alias.ci commit
+git config --global alias.st status
+
+
+
+Verify setup:
+```bash
+git config --list
+```
+
+---
+
+## 📓 Lesson 3: Git Basics
+Create a new repo:
+```bash
+git init
+```
+
+Check repo status:
+```bash
+git status
+```
+
+Stage files:
+```bash
+git add filename.txt      # add one file
+git add .                 # add all files
+```
+
+Commit changes:
+```bash
+git commit -m "Your commit message"
+```
+
+#git add + commit
+git commit -am "commit message"
+---
+
+#update/ammend a commit without creating a new commit hash
+git commit --amend
+git commit --amend -m "commit message"
+git commit --amend --no-edit # to retain the same message
+--
+
+## 🗕️ Lesson 4: Working With History
+View commit history:
+```bash
+git log
+git log --oneline --graph --decorate
+```
+
+
+Show what changed:
+```bash
+git diff
+```
+
+Show a specific file’s history:
+```bash
+git log filename.txt
+```
+
+---
+
+## 🔀 Lesson 5: Branching & Merging
+git branch -M main
+
+Create a new branch:
+```bash
+git branch new-feature
+```
+
+Switch to a branch:
+```bash
+git checkout new-feature
+```
+
+Create and switch in one line:
+```bash
+git checkout -b new-feature
+```
+
+Merge a branch:
+```bash
+git checkout main
+git merge new-feature
+```
+
+Delete a branch:
+```bash
+git branch -d new-feature
+```
+
+---
+
+## 🌍 Lesson 6: Git Remotes (GitHub, GitLab, etc.)
+Connect local repo to remote:
+```bash
+git remote add origin https://github.com/user/repo.git
+```
+
+Push your code:
+```bash
+git push -u origin main
+```
+
+Clone a repo:
+```bash
+git clone https://github.com/user/repo.git
+```
+
+Pull changes:
+```bash
+git pull origin main
+```
+
+---
+
+## 🛠️ Lesson 7: Fixing Mistakes
+Unstage file:
+```bash
+git reset filename.txt
+```
+
+Undo last commit (keep changes):
+```bash
+git reset --soft HEAD~1
+```
+
+Undo last commit (remove changes):
+```bash
+git reset --hard HEAD~1
+```
+
+
+# creates a new commit to the commit hash of choice and keeps history and used for public history
+git revert 
+
+# used to cancel a git revert
+git revert --abort
+---
+
+
+#git stash
+git stash          # Save current changes
+git checkout main  # Go fix the bug
+# Fix bug...
+git commit -am "Bug fix"
+git checkout feature-branch
+git stash pop      # Bring back your changes
+
+
+#git squash - used to combine number of commits into a single 
+#commit to make the commit logs cleaner and more meaningful
+
+# to untrack all changes by git
+rm -rf .git # this commands delete all the tracking from git.
+cp .git .git_backup # backs up the git
+ 
+
+
+## 📚 Next Steps
+Would you like:
+- Real-world exercises?
+- A cheat sheet?
+- Git with GitHub workflow (fork, pull request)?
+- GUI tools like GitKraken or VS Code Git?
+
+Let me know your level or goal, and I can customize the lessons further.
+
+git-posh
+Install-Module PowershellGet -Force                                                             
+PowerShellGet\Install-Module posh-git -Scope CurrentUser -Force                                 
+PowerShellGet\Update-Module posh-git
+
+
+#PERSONAL ACCESS TOKENS (PAT)
+generate from github home page >> settings >> Developer Settings >> Personal access tokens (classic) >> Tokens (classic) >> generate >> save
+
+#SSH KEYS
+ssh-keygen -t ed25519 -C "anekedubuisihenry@gmail.com"
+# The above commands generates 2 keys, public and private keys and stores it on the path.
+#/c/Users/user_name/.ssh/id_ed25519.pub and /c/Users/user_name/.ssh/id_ed25519  for windows and 
+#~/.ssh/id_ed25519.pub ~/.ssh/id_ed25519 for linux respectively
+# Copy the .pub file (your public key) and navigate to github ssh keys section at 
+settings >> SSH and GPG keys >> SSH keys >> New SSH key >> paste and save.
+
+Bonus: Ed25519 signifires a family of cryptographic curves (Edwards-curve digital signature algorithm) 
+while the number 25519 is the prime number defining the curve
+
