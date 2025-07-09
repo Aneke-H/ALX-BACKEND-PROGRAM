@@ -1,0 +1,201 @@
+
+A–Z Linux Command Learning Guide
+=================================
+
+This guide is designed to help you learn Linux commands from beginner to 
+advanced level using practical categories, examples, and real-world tasks.
+
+----------------------------------------------------------
+1. Tools Needed
+----------------------------------------------------------
+- Ubuntu, Debian, CentOS, or WSL (Windows Subsystem for Linux)
+- Terminal access
+- Digital notes (Notepad, Obsidian, etc.)
+
+----------------------------------------------------------
+2. Learning by Categories (Not Alphabet)
+----------------------------------------------------------
+
+Navigation:
+-----------
+pwd              # Show current directory
+cd               # Change directory
+ls               # List directory contents
+  -l             # Long listing
+  -a             # Include hidden files
+  -lh            # Human-readable sizes
+
+File Management:
+----------------
+touch file.txt   # Create file
+cp src dst       # Copy file/folder
+mv src dst       # Move or rename
+rm file.txt      # Delete file
+mkdir folder     # Create directory
+
+Viewing Files:
+--------------
+cat file.txt     # View file content
+less file.txt    # Scrollable viewer
+head -n 10       # First 10 lines
+tail -f logfile  # Live log monitoring
+
+Searching & Filtering:
+----------------------
+grep "error" file      # Search for word
+grep -i "error" file   # Case-insensitive
+find . -name "*.log"   # Find files by name
+cut -d ':' -f1 /etc/passwd  # Extract columns
+
+Permissions & Ownership:
+------------------------
+chmod +x script.sh     # Add execute permission
+chmod 755 file         # rwxr-xr-x
+chown user:user file   # Change owner
+
+Disk & System Info:
+-------------------
+df -h             # Disk space
+du -sh folder     # Folder size
+free -m           # Memory usage
+uptime            # System uptime
+
+Process & System Monitoring:
+----------------------------
+ps aux            # All running processes
+top               # Interactive monitor
+htop              # Advanced monitor
+kill PID          # Kill a process
+
+Networking:
+-----------
+ping google.com   # Test network
+ifconfig          # Show IP config
+netstat -tuln     # Listening ports
+curl http://url   # Get URL content
+wget http://url   # Download file
+
+User Management:
+----------------
+whoami            # Current user
+adduser newuser   # Add new user
+passwd            # Change password
+
+Archiving & Compression:
+------------------------
+tar -cvf file.tar folder     # Archive
+tar -xvf file.tar            # Extract
+gzip file.txt                # Compress
+gunzip file.txt.gz           # Decompress
+
+Scripting Basics:
+-----------------
+echo "Hello"      # Print text
+read var          # Read input
+if [ -f file ]; then echo "Found"; fi
+for i in *.txt; do echo $i; done
+
+----------------------------------------------------------
+3. A–Z Command Glossary (Quick Reference)
+----------------------------------------------------------
+
+A  - alias, apt
+B  - basename, bg
+C  - cat, cp, chmod
+D  - df, du
+E  - echo, env
+F  - find, fg
+G  - grep
+H  - head, history
+I  - id, ifconfig
+J  - jobs
+K  - kill, killall
+L  - ls, less, ln
+M  - man, mkdir
+N  - netstat, nano
+O  - openssl
+P  - ps, ping, pwd
+Q  - quota
+R  - rm, read, rmdir
+S  - ssh, scp, sed, sort
+T  - top, tail, tar
+U  - uname, uptime
+V  - vi, vim
+W  - wget, who, which
+X  - xargs, xdg-open
+Y  - yes
+Z  - zip, zcat
+
+
+
+A-Z and their meaning
+---------------------------
+| Letter | Command                     | What It Does                   |
+| ------ | --------------------------- | ------------------------------ |
+| A      | `alias`                     | Create command shortcut        |
+| B      | `basename`                  | Strip directory/file           |
+| C      | `cat`, `cp`, `chmod`        | Read/copy/change perms         |
+| D      | `df`, `du`                  | Disk usage                     |
+| E      | `echo`, `env`               | Print text/env vars            |
+| F      | `find`, `fg`                | Search files / foreground jobs |
+| G      | `grep`                      | Pattern search                 |
+| H      | `head`, `history`           | First lines / command history  |
+| I      | `ifconfig`, `id`            | IP/config, user ID             |
+| J      | `jobs`                      | Show background jobs           |
+| K      | `kill`                      | Stop a process                 |
+| L      | `ls`, `less`, `ln`          | List/view/link files           |
+| M      | `man`, `mkdir`, `more`      | Help/create/view               |
+| N      | `netstat`, `nano`           | Network / edit                 |
+| O      | `openssl`                   | Security tools                 |
+| P      | `ps`, `pwd`, `ping`         | Process/location/ping          |
+| Q      | `quota`                     | Disk quota                     |
+| R      | `rm`, `rmdir`, `read`       | Remove/Read files              |
+| S      | `ssh`, `scp`, `sed`, `sort` | Remote/copy/edit/sort          |
+| T      | `tail`, `top`, `tar`        | End of file / system stats     |
+| U      | `uname`, `uptime`           | System info                    |
+| V      | `vi`, `vim`                 | Editors                        |
+| W      | `who`, `wget`, `which`      | Users/download/find command    |
+| X      | `xargs`, `xdg-open`         | Execute via stdin / open app   |
+| Y      | `yes`                       | Repeat string (looping)        |
+| Z      | `zip`, `zcat`               | Archive tools                  |
+
+
+----------------------------------------------------------
+4. Practice Tasks (Daily Routine)
+----------------------------------------------------------
+
+Day 1: Navigation
+  - Use pwd, cd, ls to explore folders
+
+Day 2: File Management
+  - Create, move, copy, and delete files
+
+Day 3: Viewing Files
+  - Use cat, less, head, tail to read files
+
+Day 4: Searching & Filtering
+  - Use grep and find to locate strings/files
+
+Day 5: Permissions
+  - Set chmod and chown on files
+
+Day 6: Monitoring System
+  - Use top, df, free to monitor
+
+Day 7: Archiving & Automation
+  - Use tar, gzip, and write a simple script
+
+----------------------------------------------------------
+5. Extra Tip: Use Help
+----------------------------------------------------------
+man command        # View manual for command
+command --help     # Quick help
+
+----------------------------------------------------------
+6. Final Advice
+----------------------------------------------------------
+- Practice a little every day.
+- Use man pages as your guide.
+- Try using Linux for daily tasks to improve muscle memory.
+
+Happy learning!
